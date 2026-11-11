@@ -7,11 +7,9 @@ The teaching package combines a PDF tutorial, guided MATLAB Live Script tutorial
 ## Contents
 
 - [Learning objectives](#learning-objectives)
-- [Repository structure](#repository-structure)
 - [Requirements](#requirements)
-- [Getting started](#getting-started)
-- [Exercise 15–1 — Continuous beam under a point force and a distributed load](#exercise-151--continuous-beam-under-a-point-force-and-a-distributed-load)
-- [Exercise 15–11 — Continuous beam with support settlement](#exercise-1511--continuous-beam-with-support-settlement)
+- [Exercise A — Continuous beam under a point force and a distributed load](#exercise-151--continuous-beam-under-a-point-force-and-a-distributed-load)
+- [Exercise B — Continuous beam with support settlement](#exercise-1511--continuous-beam-with-support-settlement)
 - [Computational workflow](#computational-workflow)
 - [Sign conventions and units](#sign-conventions-and-units)
 - [Expected outputs](#expected-outputs)
