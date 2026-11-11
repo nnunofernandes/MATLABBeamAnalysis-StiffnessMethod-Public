@@ -32,25 +32,6 @@ After completing the exercises, students should be able to:
 - Compare the MATLAB solution with an analytical slope-deflection calculation.
 - Verify equilibrium, compatibility, and linear superposition.
 
-## Repository structure
-
-The following layout defines the intended filenames for the complete teaching package. Place the PDF, starter scripts, and native `.mlx` versions under these names when adding them to the repository.
-
-| Folder | File | Purpose |
-|---|---|---|
-| Root | `README.md` | Repository overview, exercise statements, and instructions. |
-| `docs/` | `beam_stiffness_tutorial.pdf` | Main tutorial covering the theory and implementation. |
-| `docs/` | `Exercise_15_1_MATLAB_and_Analytical_Guide.docx` | Detailed code explanation and analytical solution for Exercise 15–1. |
-| `docs/` | `Exercise_15_11_MATLAB_and_Analytical_Guide.docx` | Detailed guide for Exercise 15–11, including settlement and superposition. |
-| `tutorials/` | `exercise_15_1_beam_stiffness_live.mlx` | Guided Live Script tutorial for Exercise 15–1. |
-| `tutorials/` | `exercise_15_11_beam_settlement_live.mlx` | Guided Live Script tutorial for Exercise 15–11. |
-| `tutorials/` | `exercise_15_1_beam_stiffness_live_ready.m` | Commented source for creating the first Live Script in MATLAB. |
-| `tutorials/` | `exercise_15_11_beam_settlement_live_ready.m` | Commented source for creating the settlement Live Script in MATLAB. |
-| `matlab/starter/` | `exercise_15_1_starter.m` | **Before solution:** incomplete script for students to develop during class. |
-| `matlab/starter/` | `exercise_15_11_starter.m` | **Before solution:** incomplete settlement exercise. |
-| `matlab/solution/` | `exercise_15_1_beam_stiffness.m` | **After solution:** complete standalone solution for Exercise 15–1. |
-| `matlab/solution/` | `exercise_15_11_beam_settlement.m` | **After solution:** complete standalone solution for Exercise 15–11. |
-
 Starter files are intended for practice; solution files provide the completed calculation. The guided tutorials explain the purpose of each stage and the interpretation of its results.
 
 ## Requirements
@@ -62,44 +43,16 @@ Starter files are intended for practice; solution files provide the completed ca
 
 The completed MATLAB scripts use base MATLAB functionality and do not require additional toolboxes. They are standalone: each exercise can be run without the other exercise or an external data file.
 
-## Getting started
-
-1. Download or clone the repository and open its root folder in MATLAB.
-2. Read the PDF tutorial in `docs/` to review the stiffness method and sign conventions.
-3. Open the relevant starter script in `matlab/starter/` and attempt the exercise.
-4. Work through the corresponding Live Script in `tutorials/`, running its sections in order.
-5. Compare your implementation with the complete script in `matlab/solution/`.
-6. Use the Word guide to follow the numerical calculation alongside the analytical solution.
-
-To run a complete solution from the repository root:
-
-```matlab
-run(fullfile('matlab', 'solution', 'exercise_15_1_beam_stiffness.m'))
-```
-
-For the settlement exercise:
-
-```matlab
-run(fullfile('matlab', 'solution', 'exercise_15_11_beam_settlement.m'))
-```
-
 Run the exercises separately. Each script starts by clearing the workspace and closing existing figures. When using a tutorial, run its sections sequentially because later sections depend on variables created earlier.
 
-### Creating a Live Script from its source
-
-If you are using a `*_live_ready.m` tutorial source:
-
-1. Open it in the MATLAB Editor.
-2. Right-click its document tab and select **Open as Live Script**.
-3. Save the new document as **MATLAB Live Code File (`*.mlx`)**, using the corresponding filename listed above.
-
-MATLAB converts the publishing comments into formatted explanatory content. The source `.m` file can also be run directly.
-
-## Exercise 15–1 — Continuous beam under a point force and a distributed load
+## Exercise A — Continuous beam under a point force and a distributed load
 
 ### Problem statement
 
 A continuous beam is fixed at supports **1** and **3** and rests on a roller at support **2**. The flexural rigidity **EI is constant** throughout the beam. Determine the moments at the two fixed supports.
+
+<img width="712" height="263" alt="image" src="https://github.com/user-attachments/assets/9ef67202-1288-44d6-880f-5f19e8561a56" />
+
 
 | Item | Specification |
 |---|---|
@@ -139,11 +92,14 @@ The requested fixed-support reaction moments are **18.500 kN·m counterclockwise
 
 </details>
 
-## Exercise 15–11 — Continuous beam with support settlement
+## Exercise B — Continuous beam with support settlement
 
 ### Problem statement
 
 A continuous beam is fixed at supports **1** and **3** and rests on a roller at support **2**. The intermediate support settles **30 mm downward**. The flexural rigidity is **EI = 3927 kN·m²**, constant throughout the beam. Determine the moments at the two fixed supports, including the effect of settlement.
+
+<img width="712" height="271" alt="image" src="https://github.com/user-attachments/assets/1cad895e-1360-48d9-9d94-b8ad8a2bccb9" />
+
 
 | Item | Specification |
 |---|---|
@@ -264,15 +220,5 @@ The scripts include checks for:
 - Superposition of loading and settlement in Exercise 15–11.
 
 When deliberately changing the problem data, disable the comparison with the original `referenceMoments` values. Keep the equilibrium and compatibility checks. Rounded values in this README may leave small residuals when substituted by hand.
-
-## Suggested classroom activities
-
-- Complete the starter files before viewing the solutions.
-- Derive the equivalent nodal load vectors by hand and compare them with `F`.
-- Explain why the beam has six global degree-of-freedom entries but only one unknown nodal displacement.
-- Multiply the common EI in Exercise 15–1 by ten and predict which results change.
-- Set the settlement in Exercise 15–11 to zero and recover the loading-only solution.
-- Reverse the settlement sign and predict the change in the settlement-only actions.
-- Explain why the shear diagram jumps at the roller while the bending-moment diagram remains continuous.
 
 The exercises use linear Euler–Bernoulli beam theory. They do not include shear deformation, axial response, plasticity, or geometric nonlinearity.
